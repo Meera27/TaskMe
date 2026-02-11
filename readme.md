@@ -1,31 +1,34 @@
-manage.py is a command-line utility used to run the server, migrations, and admin tasks.
+# Django Task Manager
 
-A Django project can have multiple apps. Apps make the code modular and reusable.
+A simple Task Manager app built with Django to create, view, and update tasks.
 
-Each model = one DB table
-Fields = columns
+---
 
-Django models are Python classes that map directly to database tables using the ORM.
+## Features
 
-MIGRATIONS (DB CREATION)
+- Add tasks with title, description, and status (To Do, In Progress, Done)  
+- View all tasks  
+- Edit tasks  
+- JSON API endpoint for all tasks  
+- Clean UI with Tailwind CSS  
 
-## python manage.py makemigrations
-### python manage.py migrate
+---
 
+## Tech Stack
 
-Migrations track model changes and apply them safely to the database.
+- Django  
+- SQLite (default database)  
+- HTML + Tailwind CSS  
 
-Django Admin provides a built-in UI to manage application data without writing custom code.
+---
 
-## python manage.py createsuperuser
+## URLs
 
-# Task.objects.all(): 
-Fetches all records from the database table associated with the Task model.
+| URL                 | Description                     |
+|---------------------|---------------------------------|
+| `/tasks/`           | View all tasks & add a new task |
+| `/tasks/<id>/edit`  | Edit a task                     |
+| `/api/tasks/`       | Get all tasks in JSON format.   |
 
-# .values(): 
-Transforms the result from a QuerySet of model instances into a QuerySet of dictionaries, where keys are column names and values are the data. 
+---
 
-# Returns: <QuerySet [{'id': 1, 'title': 'Task 1', ...}, {'id': 2, 'title': 'Task 2', ...}]>
-tasks = Task.objects.all().values()
-
-Django follows MVT architecture where URLs route requests to views, views interact with models, and responses are returned to the client.
